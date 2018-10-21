@@ -1,9 +1,5 @@
-// miniprogram/pages/change/change.js
+import langs from '../../assets/langs.js'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
@@ -26,7 +22,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(langs)
   },
 
   /**

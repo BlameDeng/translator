@@ -1,4 +1,4 @@
-{
+module.exports={
     "auto": "自动检测",
     "zh": "中文",
     "en": "英语",

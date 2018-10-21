@@ -1,25 +1,24 @@
 import translate from '../../helpers/api.js'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     tag: 'trans',
     text: '',
-    result:''
-  },
-  taptag(e) {
-    this.setData({
-      tag: e.target.dataset.tag
-    });
+    result: ''
   },
   input(e) {
-    this.setData({ text: e.detail.value });
-    translate(this.data.text,{from:'zh',to:'en'}).then(res=>{
+    if (!e.detail.value) {
+      return
+    }
+    this.setData({
+      text: e.detail.value
+    });
+    translate(this.data.text, {
+      from: 'zh',
+      to: 'en'
+    }).then(res => {
       console.log(res);
       this.setData({
-        result:res.trans_result[0].dst
+        result: res.trans_result[0].dst
       })
     })
   },
