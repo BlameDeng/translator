@@ -2,12 +2,12 @@
 <view class='container'>
   <view class='change'>
     <navigator class='nav' url='/pages/change/change'>
-      <text class='target'>到英语</text>
+      <text class='target'>到{{lang.des}}</text>
       <view class='down'></view>
     </navigator>
   </view>
   <view class='input'>
-    <textarea class='textarea' placeholder='请输入需要翻译的内容' placeholder-class='placeholder' bindconfirm='input' bindblur='input'></textarea>
+    <textarea class='textarea' placeholder='请输入需要翻译的内容' placeholder-class='placeholder' bindconfirm='input' bindblur='input' value="{{text}}"></textarea>
   </view>
   <view style='width:100%;'>
     <view class='text-title'>译文</view>

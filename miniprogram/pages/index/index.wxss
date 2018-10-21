@@ -1,7 +1,7 @@
 .change {
   width: 100%;
-  background: #e6eaf1;
-  padding: 10rpx 0;
+  background: #f6f8fa;
+  padding: 15rpx 0;
 }
 
 .nav {
@@ -11,7 +11,7 @@
 }
 
 .target {
-  font-size: 28rpx;
+  font-size: 35rpx;
   padding: 0 15rpx;
   color: #666;
 }
@@ -34,26 +34,26 @@
   width: 100%;
   padding: 0.5em;
   box-sizing: border-box;
-  font-size: 28rpx;
+  font-size: 35rpx;
   color: #666;
 }
 
 .placeholder {
-  font-size: 25rpx;
+  font-size: 30rpx;
 }
 
 .text-title {
   width: 100%;
-  background: #e6eaf1;
-  font-size: 28rpx;
-  padding: 10rpx 15rpx;
+  background: #f6f8fa;
+  font-size: 35rpx;
+  padding:15rpx;
   color: #666;
 }
 
 .result {
   padding: 0.5em;
   box-sizing: border-box;
-  font-size: 28rpx;
+  font-size: 35rpx;
   color: #666;
 }
 
@@ -63,7 +63,7 @@
   bottom: 0;
   left: 0;
   padding: .5em;
-  font-size: 20rpx;
+  font-size: 28rpx;
   color: #666;
   display: flex;
   justify-content: center;

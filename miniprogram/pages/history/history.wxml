@@ -1,0 +1,10 @@
+<scroll-view>
+  <view class='his-title'>翻译历史</view>
+  <view class='his-item' wx:for="{{history}}" wx:key="{{item.id}}">
+    <view class='his-trans'>
+      <view class='his-text'>原文：{{item.text}}</view>
+      <view class='his-result'>译文：{{item.result}}</view>
+    </view>
+    <view class='his-time'>{{item.time}}</view>
+  </view>
+</scroll-view>

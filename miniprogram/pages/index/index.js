@@ -1,80 +1,54 @@
 import translate from '../../helpers/api.js'
+import formatDate from '../../helpers/formatDate.js'
 Page({
   data: {
-    tag: 'trans',
     text: '',
-    result: ''
+    result: '',
+    lang: {
+      type: 'en',
+      des: '英语'
+    },
+    translating: false
   },
   input(e) {
+    if (this.data.translating) {
+      return
+    }
     if (!e.detail.value) {
       return
     }
     this.setData({
-      text: e.detail.value
-    });
-    translate(this.data.text, {
-      from: 'zh',
-      to: 'en'
-    }).then(res => {
-      console.log(res);
-      this.setData({
-        result: res.trans_result[0].dst
-      })
+      text: e.detail.value,
+      translating: true
     })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+    translate(this.data.text, {
+      from: 'auto',
+      to: this.data.lang.type
+    }).then(res => {
+      this.setData({
+        result: res.trans_result[0].dst,
+        translating: false
+      })
+      let history = wx.getStorageSync('history') || []
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      if (history.length) {
+        history.map(item => {
+          let index = history.indexOf(item)
+          item.text === this.data.text && item.result === this.data.result
+            ? history.splice(index, 1)
+            : ''
+        })
+      }
+      history.unshift({
+        text: this.data.text,
+        result: this.data.result,
+        time: formatDate(),
+        id: Date.now()
+      })
+      if (history.length > 10) {
+        history.splice(9, 1)
+      }
+      wx.setStorageSync('history', history)
+    })
   }
 })

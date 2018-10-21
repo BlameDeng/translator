@@ -1,32 +1,29 @@
-/* miniprogram/pages/history/history.wxss */
-.nav{
-  background: #eee;
-  display: flex;
-  justify-content: space-around;
-}
-.nav-item{
-  width: 45%;
-  text-align: center;
-  padding: 20rpx 0;
-  font-size: 30rpx;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-}
-.nav-item.active::after{
-  content: '';
-  display: block;
-  width: 100%;
-  height: 10rpx;
-  background: #666;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  border-radius: 4rpx;
-  animation: slide .3s linear forwards;
+.his-title {
+  background: #f6f8fa;
+  font-size: 35rpx;
+  padding: 15rpx;
+  color: #666;
 }
 
-@keyframes slide{
-  from{ transform: translateX(-100%);}
-  to{transform: translateX(0);}
+.his-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #666;
+}
+
+.his-item:nth-child(odd) {
+  background: #f6f8fa;
+}
+
+.his-trans {
+  flex-grow: 1;
+  font-size: 35rpx;
+  padding: 15rpx;
+}
+
+.his-time {
+  width: 150rpx;
+  font-size: 20rpx;
+  text-align: center;
 }
