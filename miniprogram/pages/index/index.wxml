@@ -1,0 +1,19 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view class='container'>
+  <view class='change'>
+    <navigator class='nav' url='/pages/change/change'>
+      <text class='target'>到英语</text>
+      <view class='down'></view>
+    </navigator>
+  </view>
+  <view class='input'>
+    <textarea class='textarea' placeholder='请输入需要翻译的内容' placeholder-class='placeholder' bindconfirm='input' bindblur='input'></textarea>
+  </view>
+  <view style='width:100%;'>
+    <view class='text-title'>译文</view>
+    <text class='result'>{{result}}</text>
+  </view>
+  <view class='right'>
+    <text>© 2018 Blame</text>
+  </view>
+</view>
